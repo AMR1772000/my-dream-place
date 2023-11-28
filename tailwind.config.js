@@ -12,7 +12,8 @@ module.exports = {
         PaleGrey : '#F2F2F2',
         Footer : '#EBEBEB',
         lightBlue : '#2969BF',
-        darkBlue : '#144E9D'
+        darkBlue : '#144E9D',
+        borderColor : '#E0E0E0'
       },
     },
     fontFamily:{
