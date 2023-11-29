@@ -13,7 +13,9 @@ module.exports = {
         Footer : '#EBEBEB',
         lightBlue : '#2969BF',
         darkBlue : '#144E9D',
-        borderColor : '#E0E0E0'
+        borderColor : '#E0E0E0',
+        borderColor2 :'#D9D9D9',
+        bottomColor : '#BDBDBD'
       },
     },
     fontFamily:{
