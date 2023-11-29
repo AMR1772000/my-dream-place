@@ -16,6 +16,7 @@
     </div> 
   </div>
   <FilterByPrice/>
+  <FilterByRating/>
   </div>
   
 </template>
@@ -25,4 +26,6 @@
 import SiteNavigation from '../components/SiteNavigation.vue';
 import SearchBar from '../components/SearchBar.vue';
 import FilterByPrice from '../components/FilterByPrice.vue';
+import FilterByRating from '../components/FilterByRating.vue';
+
 </script>
