@@ -13,6 +13,7 @@ export const useSearchStore = defineStore({
     numberOfGuests: '',
     numberOfRooms: '',
     searchResults: [],
+    Meta : [],
   }),
   actions: {
     async loadCities() {
@@ -92,7 +93,9 @@ export const useSearchStore = defineStore({
         console.log(this.numberOfRooms);
         console.log(this.numberOfGuests);
         this.searchResults = response.data.data.hotels;
+        this.Meta = response.data.data.meta;
         console.log(this.searchResults);
+        console.log(this.Meta);
       } catch (error) {
         console.error('Error fetching the hotels', error);
       }
