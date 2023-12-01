@@ -21,13 +21,13 @@
         <div class="flex flex-row">
           <div class="flex flex-row ml-[24px] mr-[12px] mt-[10px] mb-[17px]">
             <img
-             v-for="(image,index) in starImage(adjustedReviewScore(hotel.property.reviewScore))"
+             v-for="(image,index) in starImage(searchStore.adjustedReviewScore(hotel.property.reviewScore))"
               :key="index" 
               :src="image"
                alt="star" />
           </div>
           <p class="w-[120px] h-[20px] mt-[10px] mb-[17px] text-[14px] font-normal leading-[19.6px] tracking-[0.28px] text-lightGrey">
-            {{ adjustedReviewScore(hotel.property.reviewScore) }} ({{ hotel.property.reviewCount }} Reviews)
+            {{ searchStore.adjustedReviewScore(hotel.property.reviewScore) }} ({{ hotel.property.reviewCount }} Reviews)
           </p>
         </div>
          <p class="w-[360px] h-[58px] text-newTextBlack text-[13px] font-normal leading-[18.2px] tracking-[0.26px] ml-[24px]">
@@ -90,12 +90,12 @@ import { useSearchStore } from '../stores/searchStore';
 export default {
   setup() {
     const searchStore = useSearchStore();
-    // Define the adjustedReviewScore function
+   /*  // Define the adjustedReviewScore function
     const adjustedReviewScore = (originalScore) => {
       let outOfFiveScore = originalScore / 2;
       let adjustedScore = (Math.round(outOfFiveScore * 2) / 2).toFixed(1);
       return adjustedScore;
-    };
+    }; */
 
     // Define the starImage function
     const starImage = (adjustedScore) => {
@@ -135,10 +135,8 @@ export default {
       searchStore,
       searchResults,
       Meta,
-      adjustedScore,
-      
-      
-      adjustedReviewScore,
+      /* adjustedScore,
+      adjustedReviewScore, */
       starImage
     };
   }

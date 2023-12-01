@@ -100,5 +100,11 @@ export const useSearchStore = defineStore({
         console.error('Error fetching the hotels', error);
       }
     },
-  },
+    adjustedReviewScore(originalScore){
+      
+      let outOfFiveScore = originalScore / 2;
+      let adjustedScore = (Math.round(outOfFiveScore * 2) / 2).toFixed(1); 
+      return adjustedScore;
+    }
+  }
 });

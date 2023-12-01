@@ -45,7 +45,7 @@
     </div>
     
   </div>
-  <footer class="w-[1440px] h-[40px] bg-Footer  flex flex-row relative mb-[10px]  ml-[-100px] mr-[-100px]">
+  <footer class="w-[1440px] h-[40px] bg-Footer  flex flex-row relative ml-[-100px] mr-[-100px]">
     <img src="@/assets/images/copyright.png" alt="copyrigth logo" class="w-4 h-4 my-[11px]  text-lightGrey relative left-[1093px]">
     <p class="text-[14px] font-normal text-lightGrey leading-5  relative left-[1100px] items-center justify-center flex">my Dream Place 2022</p>
   </footer>
