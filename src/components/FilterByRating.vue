@@ -34,9 +34,9 @@ export default{
     const originalSearchResults = ref([]);
    
     //method 
-    onMounted(() => {
+     onMounted(() => {
       originalSearchResults.value = store.searchResults;
-    });
+    }); 
 
     const filterSearchResults = (minRating) => {
     console.log('Before filtering:', store.searchResults);
@@ -59,7 +59,7 @@ export default{
       store,
       originalSearchResults,
       filterSearchResults,
-      onMounted
+       onMounted 
     };
 
   }
