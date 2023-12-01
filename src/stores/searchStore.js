@@ -16,7 +16,8 @@ export const useSearchStore = defineStore({
     /* filterResults: [], */
     Meta : [],
     minPrice : 0,
-    maxPrice : 0
+    maxPrice : 0,
+    
   }),
 
   actions: {
@@ -153,6 +154,13 @@ export const useSearchStore = defineStore({
     },
     setMaxPrice(newValue) {
       this.maxPrice = newValue;
-    }
+    },
+    /* filterResultsByPropertyName(propertyName) {
+      const filteredResults = this.searchResults.filter(result =>
+        result.property.name.toLowerCase().includes(propertyName.toLowerCase())
+      );
+     console.log(filteredResults);
+     this.searchResults = filteredResults;
+    } */
   }
 });

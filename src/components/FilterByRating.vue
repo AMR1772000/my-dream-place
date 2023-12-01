@@ -39,7 +39,7 @@ export default{
     }); 
 
     const filterSearchResults = (minRating) => {
-    console.log('Before filtering:', store.searchResults);
+      console.log('Before filtering:', store.searchResults);
       const filteredResults = originalSearchResults.value.filter(hotel => {
         return store.adjustedReviewScore(hotel.property.reviewScore) >= minRating;
       });
@@ -50,9 +50,7 @@ export default{
         else {
           store.searchResults = filteredResults;
         }
-  
-
-  console.log('After filtering:', store.searchResults);
+        console.log('After filtering:', store.searchResults);
 }
 
     return {
