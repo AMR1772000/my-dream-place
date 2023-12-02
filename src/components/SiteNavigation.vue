@@ -8,7 +8,7 @@
     <div class="flex space-x-12 my-6">
       <p  class="text-base font-normal ">Home</p>
       <p  class="text-base font-normal ">Discover</p>
-      <p class="text-base font-normal">Activities</p>
+      <p  class="text-base font-normal">Activities</p>
       <p  class="text-base font-normal">About</p>
       <p  class="text-base font-normal">Contact</p>
     </div>

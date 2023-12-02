@@ -1,6 +1,9 @@
 <template>
   <div class="flex flex-col relative">
-
+    <div>
+      <Welcomepage/>
+    </div>
+    
     <SiteNavigation />
     <div class="relative mb-[82px]">
       <img src="@/assets/images/sydney.png" alt="sydney" class="w-full">
@@ -22,6 +25,7 @@ import ImagesCollection from '../components/ImagesCollection.vue';
 import SearchBar from '../components/SearchBar.vue';
 import SiteFooter from '../components/SiteFooter.vue';
 import SiteNavigation from '../components/SiteNavigation.vue';
+import Welcomepage from '../components/Welcomepage.vue';
 
 
 

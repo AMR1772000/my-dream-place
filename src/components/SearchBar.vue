@@ -74,17 +74,25 @@
 
   import { useRouter } from 'vue-router';
   import { useSearchStore } from '../stores/searchStore';
+  import { useAuthStore } from '../stores/auth';
 
   export default {
     setup(){
 
      const router = useRouter();
      const searchStore = useSearchStore();
+     const auth = useAuthStore();
      //methods 
 
      const performSearchAndNavigate = async () => {
+      if(auth.islogged){
         await searchStore.controlSearch();
         router.push('/searchresults')
+      }
+      else{
+        router.push('/login')
+      }
+        
       }
 
      const controlToggle = () => {
@@ -94,6 +102,7 @@
      
       return { 
         searchStore,
+        auth,
         controlToggle,
         performSearchAndNavigate
       };
