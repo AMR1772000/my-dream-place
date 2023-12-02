@@ -26,6 +26,7 @@ module.exports = {
     boxShadow :{
       'new': '0 4px 37px 0 rgba(0, 0, 0, 0.15)',
       'box': ' 0px 4px 4px 0px rgba(0, 0, 0, 0.25)',
+      'profile': '0px 4px 44px 0px rgba(0,0,0,0.15)',
     }
   },
   

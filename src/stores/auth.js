@@ -8,6 +8,7 @@ export const useAuthStore = defineStore({
     isEmailValid: true,
     password: '',
     email: '',
+    islogged: false
   }),
   actions: {
     togglePasswordVisibility() {
@@ -30,11 +31,14 @@ export const useAuthStore = defineStore({
       const validEmail = this.isEmailValid && this.email;
       const validPassword = this.isPasswordValid && this.password;
       const valide = validEmail && validPassword;
-
-      console.log("Is email valid:", validEmail);
-      console.log("Is password valid:", validPassword);
-
       return valide;
     },
+    login(){
+      this.islogged = true;
+      console.log('islogged after login:', this.islogged);
+    },
+    logout(){
+      this.islogged =false ;
+    }
   },
 });
