@@ -3,7 +3,7 @@
     
   <div class="w-[1440px] h-[200px]  text-white ml-[-100px] mr-[-100px] bg-gradient-to-b from-lightBlue to-darkBlue px-[100px] relative">
     <SiteNavigation/>
-    <SearchBar class="absolute top-[164px] left-[205px] "/>
+    <SearchBar class="absolute top-[162px] left-[205px] "/>
   </div>
   <div class="flex flex-row">
     <div>

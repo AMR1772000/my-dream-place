@@ -5,9 +5,13 @@ export const useSearchStore = defineStore({
   id: 'search',
   state: () => ({
     showDropdown: false,
+    showOptions: false,
     selectedCity: '',
+    selectedTitle: '',
     cities: [],
+    titles: [],
     selectedCityId: null,
+    selectedTitleId: null ,
     checkInDate: '',
     checkOutDate: '',
     numberOfGuests: '',
@@ -36,9 +40,37 @@ export const useSearchStore = defineStore({
         console.error('Error fetching the data', error);
       }
     },
+    async loadSortOptions(){
+      try{
+        const response = await axios.get('https://booking-com15.p.rapidapi.com/api/v1/hotels/getSortBy',{
+          params: {
+            dest_id: this.selectedCityId,
+            search_type: 'CITY',
+            arrival_date: this.checkInDate,
+            departure_date: this.checkOutDate,
+            room_qty: this.numberOfRooms, 
+            adults: this.numberOfGuests,
+          },
+          headers :{
+            'X-RapidAPI-Key': 'a72f665bcamshb7e14da0f0f9745p1c06fajsn8863b3f69700',
+            'X-RapidAPI-Host': 'booking-com15.p.rapidapi.com'
+          }
+        });
+        console.log('API Response:', response); // Log the full response
+        const data = response.data.data;
+        console.log('Raw Data:', data); // Log the raw data
+        this.titles = data;
+        console.log('Processed Titles:', this.titles); // Log the processed titles
+      }catch (error){
+        console.log('Error fetching the data' ,error);
+      }
+    },
 
     toggleDropdown() {
       this.showDropdown = !this.showDropdown;
+    },
+    toggleSortby(){
+      this.showOptions = !this.showOptions;
     },
 
     selectCity(city) {
@@ -48,6 +80,15 @@ export const useSearchStore = defineStore({
       console.log(this.selectedCityId);
       this.showDropdown = false;
       console.log(this.showDropdown);
+    },
+    selectTitle(title){
+      this.selectedTitle = title.title;
+      console.log(this.selectedTitle);
+      this.selectedTitleId = title.id;
+      console.log(this.selectedTitleId);
+      this.showOptions = false;
+      console.log(this.showOptions);
+      this.controlSortby();
     },
 
     handleCheckIn() {
@@ -149,12 +190,46 @@ export const useSearchStore = defineStore({
         console.error('Error fetching the hotels', error);
       }
     },
+     
+    async controlSortby(){
+      try {
+        const response = await axios.get('https://booking-com15.p.rapidapi.com/api/v1/hotels/searchHotels',{
+          params: {
+            dest_id: this.selectedCityId,
+            search_type: 'CITY',
+            arrival_date: this.checkInDate,
+            departure_date: this.checkOutDate,
+            room_qty: this.numberOfRooms, 
+            adults: this.numberOfGuests,
+            sort_by: this.selectedTitleId,
+          },
+          headers :{
+            'X-RapidAPI-Key': 'a72f665bcamshb7e14da0f0f9745p1c06fajsn8863b3f69700',
+            'X-RapidAPI-Host': 'booking-com15.p.rapidapi.com'
+          }
+        });
+        console.log(this.selectedCityId);
+        console.log(this.checkInDate);
+        console.log(this.checkOutDate);
+        console.log(this.numberOfRooms);
+        console.log(this.numberOfGuests);
+        console.log(this.selectedTitleId);
+        this.searchResults = response.data.data.hotels;
+        this.Meta = response.data.data.meta;
+        console.log(this.searchResults);
+        console.log(this.Meta);
+      }catch (error){
+        console.error('Error fetching the hotels', error);
+      }
+    },
+    
     setMinPrice(newValue) {
       this.minPrice = newValue;
     },
     setMaxPrice(newValue) {
       this.maxPrice = newValue;
     },
+
     /* filterResultsByPropertyName(propertyName) {
       const filteredResults = this.searchResults.filter(result =>
         result.property.name.toLowerCase().includes(propertyName.toLowerCase())

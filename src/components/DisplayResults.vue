@@ -1,8 +1,16 @@
 <template>
   <div class="ml-[31px] mt-[102px]">
-    <div v-for=" title in Meta" class="w-[504px] h-[32px] text-[24px] font-semibold text-newTextBlack mb-[40px]" >
-      <h1>{{ searchStore.selectedCity}} : {{title.title.split(' ')[0]}} search results found </h1>
+    <div class="flex flex-row">
+
+      <div v-for=" title in Meta" class="w-[504px] h-[32px] text-[24px] font-semibold text-newTextBlack mb-[40px]" >
+        <h1>{{ searchStore.selectedCity}} : {{title.title.split(' ')[0]}} search results found </h1>
+      </div>
+      <div>
+        <SortBy/>
+      </div>
+      
     </div>
+    
 
     <div
 
@@ -86,60 +94,51 @@
 <script>
 import { computed } from 'vue';
 import { useSearchStore } from '../stores/searchStore';
-
+import SortBy from './SortBy.vue';
 export default {
-  setup() {
-    const searchStore = useSearchStore();
-   /*  // Define the adjustedReviewScore function
-    const adjustedReviewScore = (originalScore) => {
-      let outOfFiveScore = originalScore / 2;
-      let adjustedScore = (Math.round(outOfFiveScore * 2) / 2).toFixed(1);
-      return adjustedScore;
-    }; */
-
-    // Define the starImage function
-    const starImage = (adjustedScore) => {
-    const fullStars = Math.floor(adjustedScore);
-    const hasHalfStar = adjustedScore % 1 !== 0;
-  
-    const images = [];
-    for (let i = 0; i < fullStars; i++) {
-      images.push('../src/assets/images/star.png');
-    }
-    
-    if (hasHalfStar) {
-      images.push('../src/assets/images/Half-star.png');
-    }
-    return images;
-    };
-
-    // Computed property to retrieve and adjust the review score
-    const adjustedScore = computed(() => {
-      return adjustedReviewScore(searchStore.searchResults[0].property.reviewScore);
-    });
-
-    // Computed property to return search results
-    const searchResults = computed(() => {
-      return searchStore.searchResults;
-    });
-
-    // Computed property for Meta
-    const Meta = computed(() => {
-      return searchStore.Meta;
-    });
-
-    
-
-  
-    return {
-      searchStore,
-      searchResults,
-      Meta,
-      /* adjustedScore,
-      adjustedReviewScore, */
-      starImage
-    };
-  }
+    setup() {
+        const searchStore = useSearchStore();
+        /*  // Define the adjustedReviewScore function
+         const adjustedReviewScore = (originalScore) => {
+           let outOfFiveScore = originalScore / 2;
+           let adjustedScore = (Math.round(outOfFiveScore * 2) / 2).toFixed(1);
+           return adjustedScore;
+         }; */
+        // Define the starImage function
+        const starImage = (adjustedScore) => {
+            const fullStars = Math.floor(adjustedScore);
+            const hasHalfStar = adjustedScore % 1 !== 0;
+            const images = [];
+            for (let i = 0; i < fullStars; i++) {
+                images.push('../src/assets/images/star.png');
+            }
+            if (hasHalfStar) {
+                images.push('../src/assets/images/Half-star.png');
+            }
+            return images;
+        };
+        // Computed property to retrieve and adjust the review score
+        const adjustedScore = computed(() => {
+            return adjustedReviewScore(searchStore.searchResults[0].property.reviewScore);
+        });
+        // Computed property to return search results
+        const searchResults = computed(() => {
+            return searchStore.searchResults;
+        });
+        // Computed property for Meta
+        const Meta = computed(() => {
+            return searchStore.Meta;
+        });
+        return {
+            searchStore,
+            searchResults,
+            Meta,
+            /* adjustedScore,
+            adjustedReviewScore, */
+            starImage
+        };
+    },
+    components: { SortBy }
 }
 </script>
 

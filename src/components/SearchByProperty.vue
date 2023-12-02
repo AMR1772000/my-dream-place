@@ -38,10 +38,10 @@ export default{
       }
     };
 
-    onMounted(() => {
+    /* onMounted(() => {
       originalSearchResults.value = store.searchResults;
       console.log('Original Search Results:', originalSearchResults.value);
-    });
+    }); */
     return{
       store,
       propertyName,

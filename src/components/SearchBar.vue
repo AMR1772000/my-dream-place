@@ -76,8 +76,6 @@
   import { useSearchStore } from '../stores/searchStore';
 
   export default {
-
-    
     setup(){
 
      const router = useRouter();
