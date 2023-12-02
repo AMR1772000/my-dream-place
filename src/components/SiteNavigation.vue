@@ -12,9 +12,12 @@
       <RouterLink to="" class="text-base font-normal">About</RouterLink>
       <RouterLink to="" class="text-base font-normal">Contact</RouterLink>
     </div>
-    <RouterLink to="" class="bg-customBlue text-white rounded py-[10px] px-[18px] my-[14px]">
+    <RouterLink to="/login" class="bg-customBlue text-white rounded py-[10px] px-[18px] my-[14px]">
       Login
     </RouterLink>
+    <div>
+      
+    </div>
   </nav>
 
 </template>
