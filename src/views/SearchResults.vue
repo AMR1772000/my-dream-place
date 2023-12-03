@@ -1,9 +1,8 @@
 <template>
-  <div>
-    
+  <div>  
   <div class="w-[1440px] h-[200px]  text-white ml-[-100px] mr-[-100px] bg-gradient-to-b from-lightBlue to-darkBlue px-[100px] relative">
     <SiteNavigation/>
-    <SearchBar class="absolute top-[161px] left-[205px] "/>
+    <SearchBar class="absolute top-[160px] left-[205px] "/>
   </div>
   <div class="flex flex-row">
     <div>
@@ -29,8 +28,8 @@ import SearchBar from '../components/SearchBar.vue';
 import FilterByPrice from '../components/FilterByPrice.vue';
 import FilterByRating from '../components/FilterByRating.vue';
 import SearchByProperty from '../components/SearchByProperty.vue';
-import DisplayResults from '../components/DisplayResults.vue';
 import CovidRestriction from '../components/CovidRestriction.vue'
 import SiteFooter from '../components/SiteFooter.vue'
+import DisplayResults from '../components/DisplayResults.vue';
 
 </script>

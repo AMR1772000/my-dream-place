@@ -29,7 +29,7 @@
             <li>
               <div class="flex flex-row gap-[10px] py-[10px] pr-[10px] pl-[14px]">
                 <img src="@/assets/images/my-trips.png" alt="my trips" class="w-5 h-5">
-                <p class="text-lightGrey text-[15px] font-normal leading-5 tracking-[0.3px]">My trips</p>
+                <router-link to="/myTrips" class="text-lightGrey text-[15px] font-normal leading-5 tracking-[0.3px]">My trips</router-link>
               </div>
             </li>
             <li>
