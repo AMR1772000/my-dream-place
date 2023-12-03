@@ -15,9 +15,9 @@
         @click="handleCheckboxClick(checkbox)" 
         class="ml-[18px] mb-[14px] mr-[8px] mt-[18px] w-[20px] h-[20px] rounded-[5px] border border-solid border-borderColor2">
       <p 
-      class=" flex items-start justify-center  text-[14px] font-normal tracking-[0.28px] mt-[18px]">
-      {{checkbox.label}}
-    </p>
+        class=" flex items-start justify-center  text-[14px] font-normal tracking-[0.28px] mt-[18px]">
+        {{checkbox.label}}
+      </p>
     </div>
     
 
@@ -79,6 +79,7 @@
       { label: "$ 1,000 - $ 2,000", isChecked: false ,minPrice: 1000 , maxPrice: 2000},
       { label: "$ 2,000 - $ 5,000", isChecked: false ,minPrice: 2000 , maxPrice: 5000}
     ]);
+   
     function handleCheckboxClick(checkbox) {
       checkboxes.forEach((item) => {
         if (item !== checkbox) {

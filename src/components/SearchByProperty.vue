@@ -20,7 +20,8 @@ export default{
     const store = useSearchStore();
     const propertyName = ref('');
     const originalSearchResults = ref([]);
-
+ 
+    /* filter the hotels based on the hotel name entered */
     const handleSearchInput = () => {
       console.log('Input Value:', propertyName.value);
       const filteredResults = store.searchResults.filter(result =>
@@ -38,10 +39,12 @@ export default{
       }
     };
 
-    /* onMounted(() => {
+    /* load the search result in the original search result array to use when the input is empty */
+     onMounted(() => {
       originalSearchResults.value = store.searchResults;
       console.log('Original Search Results:', originalSearchResults.value);
-    }); */
+    }); 
+
     return{
       store,
       propertyName,

@@ -8,7 +8,6 @@
     <div class="pl-[18px]">
       <p class="text-lightGrey text-[14px] font-normal tracking-[0.28px] mb-[8px]">Show only ratings more than</p>
       <div class="rounded-[5px] border border-solid border-borderColor mb-[24px] flex w-[250px]">
-        <!-- Example: Adding a method to call the store action on button click -->
         <div 
         v-for="rating in [1, 2, 3, 4, 5]" 
         :key="rating"
@@ -34,6 +33,7 @@ export default{
     const originalSearchResults = ref([]);
    
     //method 
+    /* load the search result value to store so as if no results load them */
      onMounted(() => {
       originalSearchResults.value = store.searchResults;
     }); 

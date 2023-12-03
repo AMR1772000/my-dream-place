@@ -17,7 +17,6 @@ export const useSearchStore = defineStore({
     numberOfGuests: '',
     numberOfRooms: '',
     searchResults: [],
-    /* filterResults: [], */
     Meta : [],
     minPrice : 0,
     maxPrice : 0,
@@ -25,12 +24,13 @@ export const useSearchStore = defineStore({
   }),
 
   actions: {
+    /* load cities in search destination  */
     async loadCities() {
       try {
         const response = await axios.get('https://booking-com15.p.rapidapi.com/api/v1/hotels/searchDestination',{
           params: {query: 'egypt' },
           headers :{
-            'X-RapidAPI-Key': 'a72f665bcamshb7e14da0f0f9745p1c06fajsn8863b3f69700',
+            'X-RapidAPI-Key': 'dd5623c7acmsh114efe4156dbc49p19036ejsnb586f14779d0',
             'X-RapidAPI-Host': 'booking-com15.p.rapidapi.com'
           }
         });
@@ -40,6 +40,7 @@ export const useSearchStore = defineStore({
         console.error('Error fetching the data', error);
       }
     },
+    /* load options to sort on it */
     async loadSortOptions(){
       try{
         const response = await axios.get('https://booking-com15.p.rapidapi.com/api/v1/hotels/getSortBy',{
@@ -52,7 +53,7 @@ export const useSearchStore = defineStore({
             adults: this.numberOfGuests,
           },
           headers :{
-            'X-RapidAPI-Key': 'a72f665bcamshb7e14da0f0f9745p1c06fajsn8863b3f69700',
+            'X-RapidAPI-Key': 'dd5623c7acmsh114efe4156dbc49p19036ejsnb586f14779d0',
             'X-RapidAPI-Host': 'booking-com15.p.rapidapi.com'
           }
         });
@@ -72,7 +73,7 @@ export const useSearchStore = defineStore({
     toggleSortby(){
       this.showOptions = !this.showOptions;
     },
-
+    /* select city from the dropdown box in search bar */
     selectCity(city) {
       this.selectedCity = city.city_name;
       console.log(this.selectedCity);
@@ -81,6 +82,7 @@ export const useSearchStore = defineStore({
       this.showDropdown = false;
       console.log(this.showDropdown);
     },
+    /* select title from the sort by dropdown */
     selectTitle(title){
       this.selectedTitle = title.title;
       console.log(this.selectedTitle);
@@ -116,7 +118,7 @@ export const useSearchStore = defineStore({
         this.numberOfGuests = '';
       }
     },
-
+    /* get hotels based on the input of search bar */
     async controlSearch() {
       try {
         const response = await axios.get('https://booking-com15.p.rapidapi.com/api/v1/hotels/searchHotels',{
@@ -129,7 +131,7 @@ export const useSearchStore = defineStore({
             adults: this.numberOfGuests,
           },
           headers :{
-            'X-RapidAPI-Key': 'a72f665bcamshb7e14da0f0f9745p1c06fajsn8863b3f69700',
+            'X-RapidAPI-Key': 'dd5623c7acmsh114efe4156dbc49p19036ejsnb586f14779d0',
             'X-RapidAPI-Host': 'booking-com15.p.rapidapi.com'
           }
         });
@@ -146,7 +148,7 @@ export const useSearchStore = defineStore({
         console.error('Error fetching the hotels', error);
       }
     },
-
+    /* adjust the review score returned fromthe api  */
     adjustedReviewScore(originalScore){
       
       let outOfFiveScore = originalScore / 2;
@@ -154,6 +156,7 @@ export const useSearchStore = defineStore({
       return adjustedScore;
     },
 
+    /* get hotels based on the filter input */
     async controlFilter() {
       try {
         const response = await axios.get('https://booking-com15.p.rapidapi.com/api/v1/hotels/searchHotels',{
@@ -168,7 +171,7 @@ export const useSearchStore = defineStore({
             price_max: this.maxPrice,
           },
           headers :{
-            'X-RapidAPI-Key': 'a72f665bcamshb7e14da0f0f9745p1c06fajsn8863b3f69700',
+            'X-RapidAPI-Key': 'dd5623c7acmsh114efe4156dbc49p19036ejsnb586f14779d0',
             'X-RapidAPI-Host': 'booking-com15.p.rapidapi.com'
           }
         });
@@ -190,7 +193,7 @@ export const useSearchStore = defineStore({
         console.error('Error fetching the hotels', error);
       }
     },
-     
+     /* get hotels based on sort by input  */
     async controlSortby(){
       try {
         const response = await axios.get('https://booking-com15.p.rapidapi.com/api/v1/hotels/searchHotels',{
@@ -204,7 +207,7 @@ export const useSearchStore = defineStore({
             sort_by: this.selectedTitleId,
           },
           headers :{
-            'X-RapidAPI-Key': 'a72f665bcamshb7e14da0f0f9745p1c06fajsn8863b3f69700',
+            'X-RapidAPI-Key': 'dd5623c7acmsh114efe4156dbc49p19036ejsnb586f14779d0',
             'X-RapidAPI-Host': 'booking-com15.p.rapidapi.com'
           }
         });
@@ -230,12 +233,6 @@ export const useSearchStore = defineStore({
       this.maxPrice = newValue;
     },
 
-    /* filterResultsByPropertyName(propertyName) {
-      const filteredResults = this.searchResults.filter(result =>
-        result.property.name.toLowerCase().includes(propertyName.toLowerCase())
-      );
-     console.log(filteredResults);
-     this.searchResults = filteredResults;
-    } */
+   
   }
 });
