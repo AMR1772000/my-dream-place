@@ -5,7 +5,7 @@
     </div>
     
     <SiteNavigation />
-    <div class="relative mb-[82px]">
+    <div class="relative">
       <img src="@/assets/images/sydney.png" alt="sydney" class="w-full">
         <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white">
           <h1 class="text-[32px] font-bold w-[640px] h-[38px]">Enjoy Your Dream Vacation</h1>

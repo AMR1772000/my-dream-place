@@ -17,8 +17,7 @@
             <img src="@/assets/images/star.png" alt="star" class="w-[18px] h-[18px]">
           </button>
         </div>
-      </div>
-     
+      </div>    
     </div>
     
   </div>

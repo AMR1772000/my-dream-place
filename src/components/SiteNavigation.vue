@@ -1,7 +1,6 @@
 <template>
-  <nav class="sticky top-0 flex justify-between items-center w-full  mx-auto px-4 z-[2]">
+  <nav class="sticky top-0 flex justify-between items-center w-full px-4 z-[2]">
     <div class="flex items-center">
-      
       <img src="@/assets/images/bxs-plane-alt.png" alt="plane logo" class="w-6 h-6 my-2">
       <h1 class="text-lg font-medium ml-2">my dream place</h1>
     </div>
@@ -12,13 +11,13 @@
       <p  class="text-base font-normal">About</p>
       <p  class="text-base font-normal">Contact</p>
     </div>
-    <div v-if="auth.islogged" class="flex flex-row">
-        <img src="@/assets/images/notification.png" alt="notification bar" class="w-[24px] h-[24px] mt-[22px] mr-[22px] ">
+    <div v-if="auth.islogged" class="flex flex-row justify-center items-center gap-4">
+        <img src="@/assets/images/notification.png" alt="notification bar" class="w-[24px] h-[24px]">
         <div>
-          <img src="@/assets/images/profile.png" alt="profile picture" class="w-[44px] h-[44px] mt-[12px]" @click="toggleDropdown">
+          <img src="@/assets/images/profile.png" alt="profile picture" class="w-[44px] h-[44px]" @click="toggleDropdown">
           <div 
           v-if="isDropdownVisible"
-          class="w-[200px] py-[10px] px-[0px] rounded-[10px] shadow-profile absolute right-[5px] bg-white">
+          class="w-[200px] py-[10px] rounded-[10px] shadow-profile absolute right-[5px] top-16 bg-white">
             <ul>
             <li>
               <div class="flex flex-row gap-[10px] py-[10px] pr-[10px] pl-[14px]">

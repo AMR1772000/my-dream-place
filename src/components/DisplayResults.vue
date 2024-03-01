@@ -1,33 +1,25 @@
 <template>
   <div class="ml-[31px] mt-[102px]">
     <div class="flex flex-row">
-
-      <div v-for=" title in Meta" class="w-[504px] h-[32px] text-[24px] font-semibold text-newTextBlack mb-[40px]" >
+      <div v-for=" title in Meta" :key="title.hotel_id" class="w-[504px] h-[32px] text-[24px] font-semibold text-newTextBlack mb-[40px]" >
         <h1>{{ searchStore.selectedCity}} : {{title.title.split(' ')[0]}} search results found </h1>
       </div>
       <div>
         <SortBy/>
       </div>
-      
     </div>
-    
-
     <div
-
      v-for="hotel in searchResults" :key="hotel.hotel_id" 
       class="w-[915px] h-[240px] rounded-[5px] border border-solid border-bordercolor mb-[24px] flex flex-row">
 
      <div class="flex w-[285px] h-[200px]">
       <img :src="hotel.property.photoUrls[0]" alt="Hotel Photo" class="w-full h-full rounded-[5px] ml-5 mt-5 mb-5 "/>
      </div>
-
     <div class="flex flex-col">
-
       <h3 
       class="w-[370px] h-[32px] mt-[21px] ml-[26px] justify-center text-[20px] font-medium tracking-[0.2px] ">
       {{ hotel.property.name.split(' ').slice(0, 5).join(' ') }}
       </h3>
-
       <div class="flex flex-row">
         <div class="flex flex-row ml-[24px] mr-[12px] mt-[10px] mb-[17px]">
           <img
@@ -36,11 +28,9 @@
             :src="image"
             alt="star" />
         </div>
-
         <p class="w-[120px] h-[20px] mt-[10px] mb-[17px] text-[14px] font-normal leading-[19.6px] tracking-[0.28px] text-lightGrey">
           {{ searchStore.adjustedReviewScore(hotel.property.reviewScore) }} ({{ hotel.property.reviewCount }} Reviews)
         </p>
-
       </div>
       <p class="w-[360px] h-[58px] text-newTextBlack text-[13px] font-normal leading-[18.2px] tracking-[0.26px] ml-[24px]">
         {{ hotel.accessibilityLabel.split(' ').slice(0, 25).join(' ') }}....
@@ -104,7 +94,6 @@ import SortBy from './SortBy.vue';
 export default {
     setup() {
         const searchStore = useSearchStore();
-       
         // Define the starImage function
         const starImage = (adjustedScore) => {
             const fullStars = Math.floor(adjustedScore);

@@ -8,15 +8,12 @@
           v-model="searchStore.selectedTitle"
           @focus="searchStore.toggleSortby"
           placeholder="Recommended" 
-          class="text-[14px] font-normal leading-[18px] tracking-[0.28px] text-black">
-          
+          class="text-[14px] font-normal leading-[18px] tracking-[0.28px] text-black">       
        </div>
         <div>
           <img src="@/assets/images/arrow-down.png" alt="arow down" class="w-[16px] h-[16px] mt-[12px]" @click="controlToggle">
-        </div>
-       
-    </div>
-      
+        </div>  
+    </div>   
   </div>
 
   <div v-if="searchStore.showOptions" class="flex flex-col w-[190px] mt-[25px] items-center justify-center text-center text-lightGrey bg-PaleGrey rounded-[10px] shadow-box absolute right-[105px] top-[330px]">

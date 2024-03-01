@@ -148,9 +148,8 @@ export const useSearchStore = defineStore({
         console.error('Error fetching the hotels', error);
       }
     },
-    /* adjust the review score returned fromthe api  */
+    /* adjust the review score returned from the api  */
     adjustedReviewScore(originalScore){
-      
       let outOfFiveScore = originalScore / 2;
       let adjustedScore = (Math.round(outOfFiveScore * 2) / 2).toFixed(1); 
       return adjustedScore;

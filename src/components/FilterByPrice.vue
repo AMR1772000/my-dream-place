@@ -36,15 +36,13 @@
    v-if="checkValue"
    class="w-[257px]  border border-dashed border-borderColor2 mr-[20px] ml-[18px] mb-[20px] flex items-start ">
 
-      <div 
-        class="flex w-[103px] h-[39px] pt-[11px] pb-[12px] px-[12px] mt-[10px] ml-[10px] mb-[8px] mr-[13px] items-center rounded border border-solid border-borderColor">
+      <div class="flex w-[103px] h-[39px] pt-[11px] pb-[12px] px-[12px] mt-[10px] ml-[10px] mb-[8px] mr-[13px] items-center rounded border border-solid border-borderColor">
         <input type="text" 
         v-model="minBudget"
         placeholder="Min budget"
         class="text-[12px] font-normal leading-[16.8px] tracking-[0.24px] w-[67px]" >
       </div>
-      <div 
-        class="flex w-[103px] h-[39px] pt-[11px] pb-[12px] px-[12px] mt-[10px] mr-[13px] mb-[8px] items-center rounded border border-solid border-borderColor">
+      <div class="flex w-[103px] h-[39px] pt-[11px] pb-[12px] px-[12px] mt-[10px] mr-[13px] mb-[8px] items-center rounded border border-solid border-borderColor">
         <input type="text"
         v-model="maxBudget" 
         placeholder="max budget"
@@ -52,8 +50,8 @@
       </div>
     </div>
     <div
-    v-if="checkValue"
-    class="mt-3 flex flex-row ml-[29px] mb-[20px] gap-[45px] items-center">
+        v-if="checkValue"
+        class="mt-3 flex flex-row ml-[29px] mb-[20px] gap-[45px] items-center">
         <h1 class="text-[12px] font-normal leading-[16.8px] tracking-[0.24px]">Press Enter to filter</h1>
         <button class="w-[90px] h-[30px] bg-customBlue text-white rounded text-[16px] font-medium" @click="manualFilter">Filter</button>
     </div>

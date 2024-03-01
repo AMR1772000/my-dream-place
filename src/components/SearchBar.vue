@@ -1,7 +1,6 @@
 <template>
-  <div class="shadow-new rounded-lg bg-white flex w-[1030px] h-[64px] pt-[10px] pb-[11px] absolute left-[105px] top-[558px] z-10" >
-    <form @submit.prevent class="flex flex-row">
-      
+  <div class="shadow-new rounded-lg bg-white flex w-[1030px] h-[64px] pt-[10px] pb-[11px] relative left-[100px] top-[-30px] z-10 mb-5" >
+    <form @submit.prevent class="flex flex-row"> 
       <div class="pt-[11px] px-3 pb-3 flex items-center bg-PaleGrey rounded h-[43px] w-[206px] ml-[12px] relative">
         <img src="@/assets/images/location.png" alt="location logo" class="w-5 h-5 mr-[8px]">
         <input type="" 
@@ -37,7 +36,6 @@
         @change="searchStore.handleCheckOut" 
         placeholder="Check out date" 
         class="overflow-hidden text-lightGrey  bg-PaleGrey text-ellipsis text-[13px] font-normal tracking-[-0.26px]">
-        
       </div>
 
       <div class="pt-[11px] px-3 pb-3 flex items-center bg-PaleGrey rounded gap-[10px] h-[43px] w-[148px] ml-[15px]">
@@ -82,8 +80,8 @@
      const router = useRouter();
      const searchStore = useSearchStore();
      const auth = useAuthStore();
-     //methods 
 
+     //methods 
      const performSearchAndNavigate = async () => {
       if(auth.islogged){
         await searchStore.controlSearch();
@@ -94,12 +92,10 @@
       }
         
       }
-
      const controlToggle = () => {
        searchStore.toggleDropdown();
        searchStore.loadCities();
      }
-     
       return { 
         searchStore,
         auth,

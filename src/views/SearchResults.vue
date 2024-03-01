@@ -1,8 +1,8 @@
 <template>
   <div>  
-  <div class="w-[1440px] h-[200px]  text-white ml-[-100px] mr-[-100px] bg-gradient-to-b from-lightBlue to-darkBlue px-[100px] relative">
+  <div class="w-[1440px] h-[200px] text-white ml-[-100px] bg-gradient-to-b from-lightBlue to-darkBlue px-[100px]">
     <SiteNavigation/>
-    <SearchBar class="absolute top-[160px] left-[205px] "/>
+    <SearchBar class="relative top-[102px]"/>
   </div>
   <div class="flex flex-row">
     <div>
@@ -12,7 +12,6 @@
     </div>
     <div>
       <DisplayResults/>
-      
     </div>
   </div>
   <CovidRestriction class="mb-[40px]"/>
